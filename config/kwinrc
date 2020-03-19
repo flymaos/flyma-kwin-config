@@ -1,0 +1,5 @@
+[Plugins]
+blurEnabled=true
+
+[Windows]
+Placement=Centered
