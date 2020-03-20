@@ -1,14 +1,14 @@
 [Desktop Entry]
-Name=FlymaOS Launcher
-Comment=Force the flyma-launcher window keep in screen area
+Name=PandaOS Launcher
+Comment=Force the pandaos-launcher window keep in screen area
 Icon=preferences-system-windows-script-test
 
 X-Plasma-API=javascript
 X-Plasma-MainScript=main.js
 
-X-KDE-PluginInfo-Author=zccrs
-X-KDE-PluginInfo-Email=zccrs@live.com
-X-KDE-PluginInfo-Name=flymalauncher
+X-KDE-PluginInfo-Author=ipanpan
+X-KDE-PluginInfo-Email=ipanpan@gmail.com
+X-KDE-PluginInfo-Name=pandalauncher
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-EnabledByDefault=true
 

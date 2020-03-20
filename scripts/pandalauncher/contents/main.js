@@ -30,8 +30,8 @@ function forceFullScreen(client) {
 }
 
 function setupConnection(client) {
-    if (client.resourceClass != "flyma-launcher"
-            || client.resourceName != "flyma-launcher") {
+    if (client.resourceClass != "panda-launcher"
+            || client.resourceName != "panda-launcher") {
         return;
     }
 
