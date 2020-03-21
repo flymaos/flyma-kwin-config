@@ -3,3 +3,17 @@ blurEnabled=true
 
 [Windows]
 Placement=Centered
+
+[TabBox]
+ActivitiesMode=1
+ApplicationsMode=0
+BorderActivate=9
+BorderAlternativeActivate=9
+DesktopMode=1
+HighlightWindows=true
+LayoutName=thumbnail_grid
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
