@@ -1,0 +1,6 @@
+/etc/xdg/kwinrc
+/usr/share/kwin/scripts/pandalauncher/metadata.desktop
+/usr/share/kwin/scripts/pandalauncher/contents/main.js
+/usr/share/kwin/tabbox/thumbnail_grid/metadata.desktop
+/usr/share/kwin/tabbox/thumbnail_grid/contents/ui/main.qml
+/usr/lib/x86_64-linux-gnu/qt5/plugins/kwin/effects/plugins/libpanda-blur.so
