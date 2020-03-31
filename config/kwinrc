@@ -17,3 +17,10 @@ MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
+
+[org.kde.kdecoration2]
+BorderSize=Normal
+ButtonsOnLeft=
+ButtonsOnRight=HIAX
+library=org.panda.decoration
+theme=

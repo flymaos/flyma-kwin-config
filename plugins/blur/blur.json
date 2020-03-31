@@ -8,7 +8,7 @@
         ],
         "Description": "Blur effect",
         "EnabledByDefault": true,
-        "Id": "panda.blur",
+        "Id": "com.panda.blur",
         "Name": "BlurWindow",
         "ServiceTypes": [
             "KWin/Effect"
