@@ -3,7 +3,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 find_package(KF5CoreAddons REQUIRED)
 find_package(KF5Config REQUIRED)
-find_package(KF5GuiAddons REQUIRED)
 find_package(KF5WindowSystem REQUIRED)
 find_package(KDecoration2 REQUIRED)
 find_package(Qt5 CONFIG REQUIRED COMPONENTS Gui Core)
@@ -27,7 +26,6 @@ target_link_libraries (panda-decoration
         KF5::ConfigCore
         KF5::ConfigGui
         KF5::CoreAddons
-        KF5::GuiAddons
         KF5::WindowSystem
 
     PRIVATE

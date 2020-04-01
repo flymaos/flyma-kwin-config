@@ -59,17 +59,22 @@ void CloseButton::paint(QPainter *painter, const QRect &repaintRegion)
     crossRect.moveCenter(buttonRect.center().toPoint());
 
     painter->save();
-
-    painter->setRenderHints(QPainter::Antialiasing, false);
+    painter->setRenderHints(QPainter::Antialiasing, true);
 
     // Background.
+    QRectF bgRect = QRectF(0, 0, 27, 27);
+    bgRect.moveCenter(buttonRect.center().toPoint());
+    const qreal radius = bgRect.width() / 2;
+
     painter->setPen(Qt::NoPen);
     painter->setBrush(backgroundColor());
-    painter->drawRect(buttonRect);
+    // painter->drawRect(buttonRect);
+    painter->drawRoundedRect(bgRect, radius, radius);
 
     // Foreground.
     painter->setPen(foregroundColor());
     painter->setBrush(Qt::NoBrush);
+    painter->setRenderHints(QPainter::Antialiasing, false);
     painter->drawLine(crossRect.topLeft(), crossRect.bottomRight());
     painter->drawLine(crossRect.topRight(), crossRect.bottomLeft());
 
@@ -84,19 +89,11 @@ QColor CloseButton::backgroundColor() const
     }
 
     if (isPressed()) {
-        auto *decoratedClient = deco->client().data();
-        return decoratedClient->color(
-            KDecoration2::ColorGroup::Warning,
-            KDecoration2::ColorRole::Foreground
-        ).lighter();
+        return QColor(255, 91, 77);
     }
 
     if (isHovered()) {
-        auto *decoratedClient = deco->client().data();
-        return decoratedClient->color(
-            KDecoration2::ColorGroup::Warning,
-            KDecoration2::ColorRole::Foreground
-        );
+        return QColor(255, 105, 89);
     }
 
     return Qt::transparent;
