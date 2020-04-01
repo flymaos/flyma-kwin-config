@@ -56,6 +56,8 @@ private:
     QColor titleBarBackgroundColor() const;
     QColor titleBarForegroundColor() const;
 
+    bool radiusAvailable() const;
+
     void paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const;
     void paintTitleBarBackground(QPainter *painter, const QRect &repaintRegion) const;
     void paintCaption(QPainter *painter, const QRect &repaintRegion) const;

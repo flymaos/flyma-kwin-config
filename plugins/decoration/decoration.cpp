@@ -117,7 +117,7 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
         painter->setPen(Qt::NoPen);
         painter->setBrush(m_titleBarBgColor);
 
-        if (s->isAlphaChannelSupported()) {
+        if (s->isAlphaChannelSupported() && radiusAvailable()) {
             painter->drawRoundedRect(rect(), 6, 6);
         } else {
             painter->drawRect(rect());
@@ -306,6 +306,11 @@ int Decoration::titleBarHeight() const
     // return qRound(1.5 * baseUnit) + fontMetrics.height();
 }
 
+bool Decoration::radiusAvailable() const
+{
+    return client().data()->adjacentScreenEdges() == Qt::Edges();
+}
+
 void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const
 {
     Q_UNUSED(repaintRegion)
@@ -346,13 +351,16 @@ QColor Decoration::titleBarBackgroundColor() const
 
 QColor Decoration::titleBarForegroundColor() const
 {
-    return m_titleBarFgColor;
+    const auto *decoratedClient = client().data();
+    const bool isActive = decoratedClient->isActive();
 
-    // const auto *decoratedClient = client().data();
-    // const auto group = decoratedClient->isActive()
-    //     ? KDecoration2::ColorGroup::Active
-    //     : KDecoration2::ColorGroup::Inactive;
-    // return decoratedClient->color(group, KDecoration2::ColorRole::Foreground);
+    QColor color = m_titleBarFgColor;
+
+    if (!isActive) {
+        color.setAlpha(150);
+    }
+
+    return color;
 }
 
 void Decoration::paintTitleBarBackground(QPainter *painter, const QRect &repaintRegion) const
