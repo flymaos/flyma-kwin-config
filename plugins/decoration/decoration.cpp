@@ -106,12 +106,26 @@ Decoration::~Decoration()
 void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
 {
     auto *decoratedClient = client().data();
+    auto s = settings();
 
     if (!decoratedClient->isShaded()) {
-        paintFrameBackground(painter, repaintRegion);
+        // paintFrameBackground(painter, repaintRegion);
+
+        painter->fillRect(rect(), Qt::transparent);
+        painter->save();
+        painter->setRenderHint(QPainter::Antialiasing);
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(m_titleBarBgColor);
+
+        if (s->isAlphaChannelSupported()) {
+            painter->drawRoundedRect(rect(), 6, 6);
+        } else {
+            painter->drawRect(rect());
+        }
+        painter->restore();
     }
 
-    paintTitleBarBackground(painter, repaintRegion);
+    // paintTitleBarBackground(painter, repaintRegion);
     paintCaption(painter, repaintRegion);
     paintButtons(painter, repaintRegion);
 }
@@ -236,10 +250,12 @@ void Decoration::updateShadow()
     const QRect box(shadowSize, shadowSize, 2 * shadowSize + 1, 2 * shadowSize + 1);
     const QRect rect = box.adjusted(-shadowSize, -shadowSize, shadowSize, shadowSize);
 
+    QPainter painter;
+
     QImage shadow(rect.size(), QImage::Format_ARGB32_Premultiplied);
     shadow.fill(Qt::transparent);
 
-    QPainter painter(&shadow);
+    painter.begin(&shadow);
     painter.setRenderHint(QPainter::Antialiasing);
 
     // Draw the "shape" shadow.
@@ -301,13 +317,13 @@ void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintReg
     painter->fillRect(rect(), Qt::transparent);
     painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(Qt::NoPen);
-    painter->setBrush(decoratedClient->color(
-        decoratedClient->isActive()
-            ? KDecoration2::ColorGroup::Active
-            : KDecoration2::ColorGroup::Inactive,
-        KDecoration2::ColorRole::Frame));
-    painter->setClipRect(0, borderTop(), size().width(), size().height() - borderTop(), Qt::IntersectClip);
-    painter->drawRect(rect());
+    // painter->setBrush(decoratedClient->color(
+    //     decoratedClient->isActive()
+    //         ? KDecoration2::ColorGroup::Active
+    //         : KDecoration2::ColorGroup::Inactive,
+    //     KDecoration2::ColorRole::Frame));
+    // painter->setClipRect(0, borderTop(), size().width(), size().height() - borderTop(), Qt::IntersectClip);
+    // painter->drawRect(rect());
 
     painter->restore();
 }
@@ -346,9 +362,12 @@ void Decoration::paintTitleBarBackground(QPainter *painter, const QRect &repaint
     const auto *decoratedClient = client().data();
 
     painter->save();
+    painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(Qt::NoPen);
-    painter->setBrush(titleBarBackgroundColor());
-    painter->drawRect(QRect(0, 0, decoratedClient->width(), titleBarHeight()));
+    // painter->setBrush(titleBarBackgroundColor());
+    painter->setBrush(Qt::red);
+    painter->drawRoundedRect(QRect(0, 0, decoratedClient->width(), titleBarHeight()), 6, 6);
+    // painter->drawRect(QRect(0, 0, decoratedClient->width(), titleBarHeight()));
     painter->restore();
 }
 

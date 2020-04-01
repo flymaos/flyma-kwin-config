@@ -70,7 +70,7 @@ private:
 
 private:
     int m_titleBarHeight = 30;
-    QColor m_titleBarBgColor = QColor(242, 242, 242);
+    QColor m_titleBarBgColor = QColor(255, 255, 255);
     QColor m_titleBarFgColor = QColor(51, 51, 51);
 };
 

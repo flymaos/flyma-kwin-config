@@ -1,8 +1,6 @@
 project (panda-decoration)
 set(CMAKE_CXX_STANDARD 11)
 
-add_definitions (-Wall -Werror)
-
 find_package(KF5CoreAddons REQUIRED)
 find_package(KF5Config REQUIRED)
 find_package(KF5GuiAddons REQUIRED)
