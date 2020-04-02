@@ -1,9 +1,6 @@
 set(TARGET "panda-blur")
 
 find_package(KF5Config REQUIRED)
-find_package(Qt5 CONFIG REQUIRED COMPONENTS Core Gui)
-find_package(KF5CoreAddons REQUIRED)
-find_package(KF5WindowSystem REQUIRED)
 
 add_library(
     ${TARGET} MODULE

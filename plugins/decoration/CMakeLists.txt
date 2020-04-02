@@ -10,9 +10,8 @@ find_package(Qt5 CONFIG REQUIRED COMPONENTS Gui Core)
 set (decoration_SRCS
     decoration.cpp
     boxshadowhelper.cpp
-    closebutton.cpp
-    maximizebutton.cpp
-    minimizebutton.cpp
+    button.cpp
+    resources.qrc
 )
 
 add_library (panda-decoration MODULE

@@ -1,10 +1,12 @@
 /*
- * Copyright (C) 2018 Vlad Zagorodniy <vladzzag@gmail.com>
+ * Copyright (C) 2020 PandaOS Team.
+ *
+ * Author:     rekols <rekols@foxmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -12,15 +14,13 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 // own
 #include "decoration.h"
 #include "boxshadowhelper.h"
-#include "closebutton.h"
-#include "maximizebutton.h"
-#include "minimizebutton.h"
+#include "button.h"
 
 // KDecoration
 #include <KDecoration2/DecoratedClient>
@@ -94,6 +94,11 @@ Decoration::Decoration(QObject *parent, const QVariantList &args)
     : KDecoration2::Decoration(parent, args)
 {
     ++s_decoCount;
+
+    m_closeIcon.addFile(":/images/close_normal.svg");
+    m_minimizeIcon.addFile(":/images/minimize_normal.svg");
+    m_maximizeIcon.addFile(":/images/maximize_normal.svg");
+    m_restoreIcon.addFile(":/images/restore_normal.svg");
 }
 
 Decoration::~Decoration()
@@ -123,6 +128,10 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
             painter->drawRect(rect());
         }
         painter->restore();
+
+        // draw buttons.
+        m_leftButtons->paint(painter, repaintRegion);
+        m_rightButtons->paint(painter, repaintRegion);
     }
 
     // paintTitleBarBackground(painter, repaintRegion);
@@ -154,34 +163,38 @@ void Decoration::init()
     updateResizeBorders();
     updateTitleBar();
 
-    auto buttonCreator = [this] (KDecoration2::DecorationButtonType type, KDecoration2::Decoration *decoration, QObject *parent)
-            -> KDecoration2::DecorationButton* {
-        Q_UNUSED(decoration)
+    // init buttons
+    m_leftButtons = new KDecoration2::DecorationButtonGroup(KDecoration2::DecorationButtonGroup::Position::Left, this, &Button::create);
+    m_rightButtons = new KDecoration2::DecorationButtonGroup(KDecoration2::DecorationButtonGroup::Position::Right, this, &Button::create);
 
-        switch (type) {
-        case KDecoration2::DecorationButtonType::Close:
-            return new CloseButton(this, parent);
+    // auto buttonCreator = [this] (KDecoration2::DecorationButtonType type, KDecoration2::Decoration *decoration, QObject *parent)
+    //         -> KDecoration2::DecorationButton* {
+    //     Q_UNUSED(decoration)
 
-        case KDecoration2::DecorationButtonType::Maximize:
-            return new MaximizeButton(this, parent);
+    //     switch (type) {
+    //     case KDecoration2::DecorationButtonType::Close:
+    //         return new CloseButton(this, parent);
 
-        case KDecoration2::DecorationButtonType::Minimize:
-            return new MinimizeButton(this, parent);
+    //     case KDecoration2::DecorationButtonType::Maximize:
+    //         return new MaximizeButton(this, parent);
 
-        default:
-            return nullptr;
-        }
-    };
+    //     case KDecoration2::DecorationButtonType::Minimize:
+    //         return new MinimizeButton(this, parent);
 
-    m_leftButtons = new KDecoration2::DecorationButtonGroup(
-        KDecoration2::DecorationButtonGroup::Position::Left,
-        this,
-        buttonCreator);
+    //     default:
+    //         return nullptr;
+    //     }
+    // };
 
-    m_rightButtons = new KDecoration2::DecorationButtonGroup(
-        KDecoration2::DecorationButtonGroup::Position::Right,
-        this,
-        buttonCreator);
+    // m_leftButtons = new KDecoration2::DecorationButtonGroup(
+    //     KDecoration2::DecorationButtonGroup::Position::Left,
+    //     this,
+    //     buttonCreator);
+
+    // m_rightButtons = new KDecoration2::DecorationButtonGroup(
+    //     KDecoration2::DecorationButtonGroup::Position::Right,
+    //     this,
+    //     buttonCreator);
 
     updateButtonsGeometry();
 
@@ -218,13 +231,25 @@ void Decoration::updateTitleBar()
 
 void Decoration::updateButtonsGeometry()
 {
+    auto s = settings();
+    auto c = client().data();
+    int right_margin = 3;
+
+    foreach (const QPointer<KDecoration2::DecorationButton> &button, m_leftButtons->buttons() + m_rightButtons->buttons()) {
+        button.data()->setGeometry(QRectF(QPoint(0, 0), QSizeF(m_titleBarHeight, m_titleBarHeight)));
+    }
+
     if (!m_leftButtons->buttons().isEmpty()) {
         m_leftButtons->setPos(QPointF(0, 0));
         m_leftButtons->setSpacing(0);
     }
 
     if (!m_rightButtons->buttons().isEmpty()) {
-        m_rightButtons->setPos(QPointF(size().width() - m_rightButtons->geometry().width(), 0));
+        if (c->isMaximizedHorizontally()) {
+            right_margin = 0;
+        }
+
+        m_rightButtons->setPos(QPointF(size().width() - m_rightButtons->geometry().width() - right_margin, 0));
         m_rightButtons->setSpacing(0);
     }
 

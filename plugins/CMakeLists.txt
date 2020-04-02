@@ -1,4 +1,6 @@
 find_package(Qt5 CONFIG REQUIRED COMPONENTS Core Gui)
+find_package(KF5CoreAddons REQUIRED)
+find_package(KF5WindowSystem REQUIRED)
 
 # 获取qmake
 get_target_property(QT_QMAKE_EXECUTABLE ${Qt5Core_QMAKE_EXECUTABLE} IMPORTED_LOCATION)
@@ -17,10 +19,10 @@ else()
     message(FATAL_ERROR "Qt5 plugin directory cannot be detected.")
 endif()
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
+# set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# set(CMAKE_AUTOMOC ON)
+# set(CMAKE_AUTOUIC ON)
+# set(CMAKE_AUTORCC ON)
 
 add_subdirectory(blur)
 add_subdirectory(decoration)
