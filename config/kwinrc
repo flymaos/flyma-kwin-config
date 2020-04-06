@@ -2,6 +2,8 @@
 blurEnabled=false
 
 [Windows]
+FocusStealingPreventionLevel=0
+HideUtilityWindowsForInactive=false
 Placement=Centered
 
 [TabBox]
