@@ -9,7 +9,6 @@ find_package(Qt5 CONFIG REQUIRED COMPONENTS Gui Core)
 
 set (decoration_SRCS
     decoration.cpp
-    boxshadowhelper.cpp
     button.cpp
     resources.qrc
 )

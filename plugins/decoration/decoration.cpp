@@ -19,7 +19,6 @@
 
 // own
 #include "decoration.h"
-#include "boxshadowhelper.h"
 #include "button.h"
 
 // KDecoration
@@ -33,6 +32,8 @@
 
 #include <KPluginFactory>
 
+#include <cmath>
+
 K_PLUGIN_FACTORY_WITH_JSON(
     PandaDecorationFactory,
     "panda.json",
@@ -40,60 +41,16 @@ K_PLUGIN_FACTORY_WITH_JSON(
 
 namespace Panda
 {
-
-namespace
-{
-
-struct ShadowParams
-{
-    ShadowParams() = default;
-
-    ShadowParams(const QPoint &offset, int radius, qreal opacity)
-        : offset(offset)
-        , radius(radius)
-        , opacity(opacity) {}
-
-    QPoint offset;
-    int radius = 0;
-    qreal opacity = 0;
-};
-
-struct CompositeShadowParams
-{
-    CompositeShadowParams() = default;
-
-    CompositeShadowParams(
-            const QPoint &offset,
-            const ShadowParams &shadow1,
-            const ShadowParams &shadow2)
-        : offset(offset)
-        , shadow1(shadow1)
-        , shadow2(shadow2) {}
-
-    QPoint offset;
-    ShadowParams shadow1;
-    ShadowParams shadow2;
-};
-
-const CompositeShadowParams s_shadowParams = CompositeShadowParams(
-    QPoint(0, 18),
-    ShadowParams(QPoint(0, 0), 64, 0.8),
-    ShadowParams(QPoint(0, -10), 24, 0.1)
-);
-
-} // anonymous namespace
-
-static int s_decoCount = 0;
-static QColor s_shadowColor(33, 33, 33);
-static QSharedPointer<KDecoration2::DecorationShadow> s_cachedShadow;
-
-// static qreal s_titleBarOpacityActive = 0.9;
-// static qreal s_titleBarOpacityInactive = 1.0;
+static int g_sDecoCount = 0;
+static int g_shadowSize = 0;
+static int g_shadowStrength = 0;
+static QColor g_shadowColor = Qt::black;
+static QSharedPointer<KDecoration2::DecorationShadow> g_sShadow;
 
 Decoration::Decoration(QObject *parent, const QVariantList &args)
     : KDecoration2::Decoration(parent, args)
 {
-    ++s_decoCount;
+    ++g_sDecoCount;
 
     m_closeIcon.addFile(":/images/close_normal.svg");
     m_minimizeIcon.addFile(":/images/minimize_normal.svg");
@@ -103,8 +60,8 @@ Decoration::Decoration(QObject *parent, const QVariantList &args)
 
 Decoration::~Decoration()
 {
-    if (--s_decoCount == 0) {
-        s_cachedShadow.clear();
+    if (--g_sDecoCount == 0) {
+        g_sShadow.clear();
     }
 }
 
@@ -123,7 +80,7 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
         painter->setBrush(m_titleBarBgColor);
 
         if (s->isAlphaChannelSupported() && radiusAvailable()) {
-            painter->drawRoundedRect(rect(), 6, 6);
+            painter->drawRoundedRect(rect(), m_frameRadius, m_frameRadius);
         } else {
             painter->drawRect(rect());
         }
@@ -258,68 +215,79 @@ void Decoration::updateButtonsGeometry()
 
 void Decoration::updateShadow()
 {
-    if (!s_cachedShadow.isNull()) {
-        setShadow(s_cachedShadow);
-        return;
+    // assign global shadow if exists and parameters match
+    if (!g_sShadow) {
+        // assign parameters
+        g_shadowSize = 40;
+        g_shadowStrength = 60;
+        g_shadowColor = Qt::black;
+        const int shadowOverlap = 3;
+        // const int shadowOffset = qMax(6 * g_shadowSize / 16, shadowOverlap * 2);
+        const int shadowOffset = shadowOverlap * 2;
+
+        // create image
+        QImage image(2 * g_shadowSize, 2 * g_shadowSize, QImage::Format_ARGB32_Premultiplied);
+        image.fill(Qt::transparent);
+
+        // create gradient
+        // gaussian delta function
+        auto alpha = [](qreal x) { return std::exp( -x*x/0.15 ); };
+
+        // color calculation delta function
+        auto gradientStopColor = [](QColor color, int alpha) {
+            color.setAlpha(alpha);
+            return color;
+        };
+
+        QRadialGradient radialGradient(g_shadowSize, g_shadowSize, g_shadowSize);
+        for (int i = 0; i < 10; ++i) {
+            const qreal x(qreal( i ) / 9);
+            radialGradient.setColorAt(x, gradientStopColor(g_shadowColor, alpha(x) * g_shadowStrength));
+        }
+
+        radialGradient.setColorAt(1, gradientStopColor(g_shadowColor, 0 ));
+
+        QPainter painter;
+        // fill
+        painter.begin(&image);
+        //TODO review these
+        //QPainter painter(&image);
+        painter.setRenderHint( QPainter::Antialiasing, true );
+        painter.fillRect( image.rect(), radialGradient);
+
+        // contrast pixel
+        QRectF innerRect = QRectF(
+            g_shadowSize - shadowOverlap, g_shadowSize - shadowOffset - shadowOverlap,
+            2 * shadowOverlap, shadowOffset + 2 * shadowOverlap );
+            // g_shadowSize - shadowOffset - shadowOverlap, g_shadowSize - shadowOffset - shadowOverlap,
+            // shadowOffset + 2*shadowOverlap, shadowOffset + 2*shadowOverlap );
+
+        painter.setPen( gradientStopColor(g_shadowColor, g_shadowStrength * 0.5));
+        painter.setBrush(Qt::NoBrush);
+        painter.drawRoundedRect(innerRect, -0.5 + m_frameRadius, -0.5 + m_frameRadius);
+
+        // mask out inner rect
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(Qt::black);
+        painter.setCompositionMode(QPainter::CompositionMode_DestinationOut);
+        painter.drawRoundedRect(innerRect, 0.5 + m_frameRadius, 0.5 + m_frameRadius);
+        painter.end();
+
+        g_sShadow = QSharedPointer<KDecoration2::DecorationShadow>::create();
+        g_sShadow->setPadding( QMargins(
+        // g_shadowSize - shadowOffset - shadowOverlap,
+        g_shadowSize - shadowOverlap,
+        g_shadowSize - shadowOffset - shadowOverlap,
+        g_shadowSize - shadowOverlap,
+        g_shadowSize - shadowOverlap));
+
+        g_sShadow->setInnerShadowRect(QRect(g_shadowSize, g_shadowSize, 1, 1));
+
+        // assign image
+        g_sShadow->setShadow(image);
     }
 
-    auto withOpacity = [] (const QColor &color, qreal opacity) -> QColor {
-        QColor c(color);
-        c.setAlphaF(opacity);
-        return c;
-    };
-
-    // In order to properly render a box shadow with a given radius `shadowSize`,
-    // the box size should be at least `2 * QSize(shadowSize, shadowSize)`.
-    const int shadowSize = qMax(s_shadowParams.shadow1.radius, s_shadowParams.shadow2.radius);
-    const QRect box(shadowSize, shadowSize, 2 * shadowSize + 1, 2 * shadowSize + 1);
-    const QRect rect = box.adjusted(-shadowSize, -shadowSize, shadowSize, shadowSize);
-
-    QPainter painter;
-
-    QImage shadow(rect.size(), QImage::Format_ARGB32_Premultiplied);
-    shadow.fill(Qt::transparent);
-
-    painter.begin(&shadow);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-    // Draw the "shape" shadow.
-    BoxShadowHelper::boxShadow(
-        &painter,
-        box,
-        s_shadowParams.shadow1.offset,
-        s_shadowParams.shadow1.radius,
-        withOpacity(s_shadowColor, s_shadowParams.shadow1.opacity));
-
-    // Draw the "contrast" shadow.
-    BoxShadowHelper::boxShadow(
-        &painter,
-        box,
-        s_shadowParams.shadow2.offset,
-        s_shadowParams.shadow2.radius,
-        withOpacity(s_shadowColor, s_shadowParams.shadow2.opacity));
-
-    // Mask out inner rect.
-    const QMargins padding = QMargins(
-        shadowSize - s_shadowParams.offset.x(),
-        shadowSize - s_shadowParams.offset.y(),
-        shadowSize + s_shadowParams.offset.x(),
-        shadowSize + s_shadowParams.offset.y());
-    const QRect innerRect = rect - padding;
-
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(Qt::black);
-    painter.setCompositionMode(QPainter::CompositionMode_DestinationOut);
-    painter.drawRect(innerRect);
-
-    painter.end();
-
-    s_cachedShadow = QSharedPointer<KDecoration2::DecorationShadow>::create();
-    s_cachedShadow->setPadding(padding);
-    s_cachedShadow->setInnerShadowRect(QRect(shadow.rect().center(), QSize(1, 1)));
-    s_cachedShadow->setShadow(shadow);
-
-    setShadow(s_cachedShadow);
+    setShadow(g_sShadow);
 }
 
 int Decoration::titleBarHeight() const
