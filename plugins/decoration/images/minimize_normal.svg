@@ -244,16 +244,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="-11.57872"
-     inkscape:cy="16.875644"
+     inkscape:cx="-15.190587"
+     inkscape:cy="16.518502"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="879"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false">
     <inkscape:grid
@@ -303,13 +303,11 @@
        x="-7.5148616"
        y="292.00653"
        ry="4.4795979e-06" />
-    <rect
-       id="rect6-5"
-       ry="0.26458332"
-       y="292.76663"
-       x="2.46875"
-       height="0.52916664"
-       width="3"
-       style="opacity:0.5;fill:#303030;fill-opacity:1;stroke:none;stroke-width:0.62998015;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       dominant-baseline="auto"
+       d="M 3.9687694,294.06876 5.80175,292.23578 5.5596585,291.9937 3.9687539,293.58459 2.3778415,291.9937 2.13575,292.23578 Z"
+       id="path1093"
+       inkscape:connector-curvature="0"
+       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#808080;fill-opacity:1;stroke-width:0.38518763;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
   </g>
 </svg>

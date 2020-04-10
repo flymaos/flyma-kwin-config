@@ -244,16 +244,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="-14.024595"
-     inkscape:cy="6.3286787"
+     inkscape:cx="-31.712764"
+     inkscape:cy="15.908161"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="879"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false">
     <inkscape:grid
@@ -283,14 +283,6 @@
        id="4"
        inkscape:label="#g3842"
        transform="matrix(0.26458333,0,0,0.26458333,11.895874,2.9564196)" />
-    <rect
-       style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12549739;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       id="rect1577-8"
-       width="4.2333331"
-       height="4.2333331"
-       x="-5.3981786"
-       y="291.74194"
-       ry="4.4795979e-06" />
     <g
        id="4-7"
        inkscape:label="#g3842"
@@ -304,9 +296,10 @@
        id="rect1575-0"
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12549739;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
     <path
+       dominant-baseline="auto"
+       d="m 3.9687319,291.99381 -1.8327768,1.83278 0.2420587,0.24206 1.5907362,-1.59074 1.5907349,1.59074 0.24206,-0.24206 z"
+       id="path1093"
        inkscape:connector-curvature="0"
-       id="path6-0-54"
-       d="m 3.2693951,291.70832 2.0222715,2.02227 v -1.5813 c 0,-0.18321 -0.2577482,-0.44097 -0.4409722,-0.44097 z m -0.6235618,0.62356 v 1.5813 c 0,0.1832 0.2577482,0.44097 0.4409717,0.44097 h 1.5812996 z"
-       style="opacity:0.5;fill:#303030;fill-opacity:1;stroke:none;stroke-width:0.8819446;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#808080;fill-opacity:1;stroke-width:0.38514525;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
   </g>
 </svg>

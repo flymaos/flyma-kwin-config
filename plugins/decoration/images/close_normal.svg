@@ -26,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="3.4375"
-     inkscape:cy="12.859934"
+     inkscape:cx="-15.766437"
+     inkscape:cy="18.741869"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="879"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false">
     <inkscape:grid
@@ -89,7 +89,7 @@
        inkscape:connector-curvature="0"
        id="path2-56"
        d="m 3.9687743,295.75543 c 1.5003072,0 2.716568,-1.21966 2.716568,-2.7242 0,-1.50453 -1.2162608,-2.7242 -2.716568,-2.7242 -1.5003513,0 -2.7166155,1.21967 -2.7166155,2.7242 0,1.50454 1.2162642,2.7242 2.7166155,2.7242"
-       style="fill:#fe6264;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.38862756" />
+       style="fill:#e7e7e8;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.38862756" />
     <g
        transform="matrix(0.26458333,0,0,0.26458333,-90.998607,352.42885)"
        style="display:inline"
@@ -128,6 +128,6 @@
        id="polygon2562"
        points="23.438,16.354 23.792,16 24.5,16.708 24.146,17.063 20.958,20.25 24.146,23.438 24.5,23.792 23.792,24.5 23.438,24.146 20.25,20.958 17.063,24.146 16.708,24.5 16,23.792 16.354,23.438 19.542,20.25 16.354,17.063 16,16.708 16.708,16 17.063,16.354 20.25,19.542 "
        transform="matrix(0.29381769,0,0,0.2946651,-1.9810582,287.06426)"
-       style="fill:#ffffff;fill-opacity:1" />
+       style="fill:#808080;fill-opacity:1" />
   </g>
 </svg>
