@@ -58,7 +58,7 @@ public:
     void prePaintScreen(ScreenPrePaintData &data, int time) override;
     void prePaintWindow(EffectWindow* w, WindowPrePaintData& data, int time);
     void paintWindow(EffectWindow *w, int mask, QRegion region, WindowPaintData &data) override;
-    void paintEffectFrame(EffectFrame *frame, QRegion region, double opacity, double frameOpacity) override;
+    void paintEffectFrame(EffectFrame *frame, QRegion region, double opacity, double frameOpacity);
 
     bool provides(Feature feature) override;
 
