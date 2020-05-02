@@ -15,7 +15,7 @@
    viewBox="0 0 7.9374997 7.9375002"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="maximize_normal.svg">
   <defs
      id="defs2">
@@ -244,16 +244,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="-31.712764"
+     inkscape:cx="-28.660714"
      inkscape:cy="15.908161"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="900"
+     inkscape:window-height="915"
      inkscape:window-x="0"
-     inkscape:window-y="30"
+     inkscape:window-y="35"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false">
     <inkscape:grid
@@ -300,6 +300,6 @@
        d="m 3.9687319,291.99381 -1.8327768,1.83278 0.2420587,0.24206 1.5907362,-1.59074 1.5907349,1.59074 0.24206,-0.24206 z"
        id="path1093"
        inkscape:connector-curvature="0"
-       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#808080;fill-opacity:1;stroke-width:0.38514525;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
+       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#525252;fill-opacity:1;stroke-width:0.38514525;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
   </g>
 </svg>
