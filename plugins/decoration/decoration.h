@@ -80,7 +80,7 @@ private:
 private:
     int m_titleBarHeight = 30;
     int m_frameRadius = 8;
-    QColor m_titleBarBgColor = QColor(255, 255, 255);
+    QColor m_titleBarBgColor = QColor(255, 255, 255, 200);
     QColor m_titleBarFgColor = QColor(51, 51, 51);
 
     QIcon m_closeIcon;
