@@ -64,6 +64,7 @@ private:
     QColor titleBarForegroundColor() const;
 
     bool radiusAvailable() const;
+    bool isMaximized() const;
 
     void paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const;
     void paintTitleBarBackground(QPainter *painter, const QRect &repaintRegion) const;
@@ -80,7 +81,7 @@ private:
 private:
     int m_titleBarHeight = 30;
     int m_frameRadius = 8;
-    QColor m_titleBarBgColor = QColor(255, 255, 255, 190);
+    QColor m_titleBarBgColor = QColor(255, 255, 255);
     QColor m_titleBarFgColor = QColor(51, 51, 51);
 
     QIcon m_closeIcon;

@@ -70,6 +70,8 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
     auto *decoratedClient = client().data();
     auto s = settings();
 
+    painter->fillRect(rect(), Qt::transparent);
+
     if (!decoratedClient->isShaded()) {
         // paintFrameBackground(painter, repaintRegion);
 
@@ -106,6 +108,8 @@ void Decoration::init()
             this, &Decoration::updateButtonsGeometry);
     connect(decoratedClient, &KDecoration2::DecoratedClient::maximizedChanged,
             this, &Decoration::updateButtonsGeometry);
+    connect(decoratedClient, &KDecoration2::DecoratedClient::maximizedChanged,
+            this, &Decoration::updateBorders);
 
     auto repaintTitleBar = [this] {
         update(titleBar());
@@ -163,7 +167,15 @@ void Decoration::init()
 void Decoration::updateBorders()
 {
     QMargins borders;
+
+    if (!isMaximized()) {
+        borders.setLeft(m_frameRadius / 2);
+        borders.setRight(m_frameRadius / 2);
+        borders.setBottom(m_frameRadius / 2);
+    }
+
     borders.setTop(titleBarHeight());
+
     setBorders(borders);
 }
 
@@ -221,9 +233,9 @@ void Decoration::updateShadow()
         g_shadowSize = 40;
         g_shadowStrength = 60;
         g_shadowColor = Qt::black;
-        const int shadowOverlap = 3;
+        const int shadowOverlap = m_frameRadius;
         // const int shadowOffset = qMax(6 * g_shadowSize / 16, shadowOverlap * 2);
-        const int shadowOffset = shadowOverlap * 2;
+        const int shadowOffset = shadowOverlap;
 
         // create image
         QImage image(2 * g_shadowSize, 2 * g_shadowSize, QImage::Format_ARGB32_Premultiplied);
@@ -302,6 +314,11 @@ int Decoration::titleBarHeight() const
 bool Decoration::radiusAvailable() const
 {
     return client().data()->adjacentScreenEdges() == Qt::Edges();
+}
+
+bool Decoration::isMaximized() const
+{
+    return client().data()->isMaximized();
 }
 
 void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const
