@@ -1,5 +1,9 @@
 [Plugins]
-blurEnabled=false
+blurEnabled=true
+
+[Effect-Blur]
+BlurStrength=5
+NoiseStrength=0
 
 [Windows]
 FocusStealingPreventionLevel=0
