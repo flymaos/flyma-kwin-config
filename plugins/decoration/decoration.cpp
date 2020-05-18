@@ -168,11 +168,11 @@ void Decoration::updateBorders()
 {
     QMargins borders;
 
-    if (!isMaximized()) {
-        borders.setLeft(m_frameRadius / 2);
-        borders.setRight(m_frameRadius / 2);
-        borders.setBottom(m_frameRadius / 2);
-    }
+    // if (!isMaximized()) {
+    //     borders.setLeft(m_frameRadius / 2);
+    //     borders.setRight(m_frameRadius / 2);
+    //     borders.setBottom(m_frameRadius / 2);
+    // }
 
     borders.setTop(titleBarHeight());
 
