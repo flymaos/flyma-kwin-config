@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -15,7 +13,7 @@
    viewBox="0 0 7.9374997 7.9375002"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    sodipodi:docname="restore_normal.svg">
   <defs
      id="defs2">
@@ -251,11 +249,12 @@
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="915"
+     inkscape:window-height="1004"
      inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:pagecheckerboard="false">
+     inkscape:pagecheckerboard="false"
+     inkscape:document-rotation="0">
     <inkscape:grid
        type="xygrid"
        id="grid2560" />
@@ -317,9 +316,9 @@
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12549739;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
     <path
        dominant-baseline="auto"
-       d="m 3.9687499,291.17297 -1.9527529,1.85826 1.9527529,1.85826 1.9527531,-1.85826 z m 0,0.50464 1.4224307,1.35358 -1.4224307,1.35361 -1.4224306,-1.35361 z"
+       d="m 3.9687499,291.25138 -2.0267535,1.77985 2.0267535,1.77985 2.0267536,-1.77985 z m 0,0.48335 1.4763344,1.29646 -1.4763344,1.2965 -1.4763344,-1.2965 z"
        id="path1034"
        inkscape:connector-curvature="0"
-       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#525252;fill-opacity:1;stroke-width:0.41156697;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
+       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#525252;fill-opacity:1;stroke-width:0.410352;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
   </g>
 </svg>

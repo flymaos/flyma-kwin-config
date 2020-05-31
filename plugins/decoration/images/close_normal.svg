@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -9,38 +7,72 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="30"
-   height="30"
-   viewBox="0 0 7.9374997 7.9375002"
-   version="1.1"
+   sodipodi:docname="close_normal.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    id="svg8"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="close_normal.svg">
+   version="1.1"
+   viewBox="0 0 7.9374997 7.9375002"
+   height="30"
+   width="30">
   <defs
-     id="defs2" />
+     id="defs2">
+    <linearGradient
+       id="b"
+       gradientUnits="userSpaceOnUse"
+       x1="399.9939"
+       x2="399.9939"
+       y1="545.13873"
+       y2="518.13873">
+      <stop
+         offset="0"
+         stop-color="#ff584c"
+         id="stop7" />
+      <stop
+         offset="1"
+         stop-color="#ff8077"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="a"
+       gradientUnits="userSpaceOnUse"
+       x1="399.57144"
+       x2="399.57144"
+       y1="545.79797"
+       y2="517.79797">
+      <stop
+         offset="0"
+         stop-color="#3889e9"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#5ea5fb"
+         id="stop4" />
+    </linearGradient>
+  </defs>
   <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="11.2"
-     inkscape:cx="-13.839286"
-     inkscape:cy="13.467799"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="915"
-     inkscape:window-x="0"
-     inkscape:window-y="35"
+     inkscape:document-rotation="0"
+     inkscape:pagecheckerboard="false"
      inkscape:window-maximized="1"
-     inkscape:pagecheckerboard="false">
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:window-height="1004"
+     inkscape:window-width="1920"
+     units="px"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="13.467799"
+     inkscape:cx="-28.794643"
+     inkscape:zoom="11.2"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
     <inkscape:grid
-       type="xygrid"
-       id="grid2560" />
+       id="grid2560"
+       type="xygrid" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -50,50 +82,56 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="" />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
+     transform="translate(0,-289.06248)"
      id="layer1"
-     transform="translate(0,-289.06248)">
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
     <g
-       id="4"
+       transform="matrix(0.26458333,0,0,0.26458333,11.895874,2.9564196)"
        inkscape:label="#g3842"
-       transform="matrix(0.26458333,0,0,0.26458333,11.895874,2.9564196)" />
-    <rect
-       style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12549739;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       id="rect1577-8"
-       width="4.2333331"
-       height="4.2333331"
-       x="-5.3981786"
-       y="291.74194"
-       ry="4.4795979e-06" />
+       id="4" />
     <g
-       id="4-7"
+       transform="matrix(0.26458333,0,0,0.26458333,8.2578527,2.6020669)"
        inkscape:label="#g3842"
-       transform="matrix(0.26458333,0,0,0.26458333,8.2578527,2.6020669)" />
+       id="4-7" />
     <rect
-       ry="6.5889685e-06"
-       y="289.91785"
-       x="0.86407435"
-       height="6.2267418"
-       width="6.2093525"
+       style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18433414;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        id="rect1569-36"
-       style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18433414;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path2-56"
-       d="m 3.9687743,295.75543 c 1.5003072,0 2.716568,-1.21966 2.716568,-2.7242 0,-1.50453 -1.2162608,-2.7242 -2.716568,-2.7242 -1.5003513,0 -2.7166155,1.21967 -2.7166155,2.7242 0,1.50454 1.2162642,2.7242 2.7166155,2.7242"
-       style="fill:#ff7979;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.38862756" />
+       width="6.2093525"
+       height="6.2267418"
+       x="0.86407435"
+       y="289.91785"
+       ry="6.5889685e-06" />
+    <g
+       stroke-width="1.2999"
+       transform="matrix(0.1940363,0,0,0.19457201,-73.756639,189.55824)"
+       id="g27">
+      <circle
+         style="fill:url(#b)"
+         cx="400.57138"
+         cy="531.79791"
+         fill="url(#b)"
+         r="13.999958"
+         id="circle23" />
+      <circle
+         style="fill:url(#a)"
+         cx="400.57138"
+         cy="531.79791"
+         fill="url(#a)"
+         r="0"
+         id="circle25" />
+    </g>
     <polygon
-       id="polygon2562"
+       style="fill:#ffffff;fill-opacity:1"
+       transform="matrix(0.2938177,0,0,0.29466511,-1.9810582,287.06426)"
        points="23.438,16.354 23.792,16 24.5,16.708 24.146,17.063 20.958,20.25 24.146,23.438 24.5,23.792 23.792,24.5 23.438,24.146 20.25,20.958 17.063,24.146 16.708,24.5 16,23.792 16.354,23.438 19.542,20.25 16.354,17.063 16,16.708 16.708,16 17.063,16.354 20.25,19.542 "
-       transform="matrix(0.29381769,0,0,0.2946651,-1.9810582,287.06426)"
-       style="fill:#ffffff;fill-opacity:1" />
+       id="polygon2562" />
   </g>
 </svg>
