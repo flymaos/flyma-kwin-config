@@ -168,11 +168,11 @@ void Decoration::updateBorders()
 {
     QMargins borders;
 
-    // if (!isMaximized()) {
-    //     borders.setLeft(m_frameRadius / 2);
-    //     borders.setRight(m_frameRadius / 2);
-    //     borders.setBottom(m_frameRadius / 2);
-    // }
+    if (!isMaximized()) {
+        borders.setLeft(m_frameRadius / 2);
+        borders.setRight(m_frameRadius / 2);
+        borders.setBottom(m_frameRadius / 2);
+    }
 
     borders.setTop(titleBarHeight());
 
@@ -367,7 +367,7 @@ QColor Decoration::titleBarForegroundColor() const
     QColor color = m_titleBarFgColor;
 
     if (!isActive) {
-        color.setAlpha(150);
+        color = m_unfocusedFgColor;
     }
 
     return color;
