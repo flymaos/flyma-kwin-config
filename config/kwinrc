@@ -8,6 +8,7 @@ NoiseStrength=0
 [Windows]
 FocusStealingPreventionLevel=0
 HideUtilityWindowsForInactive=false
+BorderlessMaximizedWindows=true
 Placement=Centered
 
 [TabBox]
