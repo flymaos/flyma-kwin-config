@@ -202,7 +202,7 @@ void Decoration::updateButtonsGeometry()
 {
     auto s = settings();
     auto c = client().data();
-    int right_margin = 3;
+    int right_margin = 5;
 
     foreach (const QPointer<KDecoration2::DecorationButton> &button, m_leftButtons->buttons() + m_rightButtons->buttons()) {
         button.data()->setGeometry(QRectF(QPoint(0, 0), QSizeF(m_titleBarHeight, m_titleBarHeight)));
@@ -210,16 +210,16 @@ void Decoration::updateButtonsGeometry()
 
     if (!m_leftButtons->buttons().isEmpty()) {
         m_leftButtons->setPos(QPointF(0, 0));
-        m_leftButtons->setSpacing(0);
+        m_leftButtons->setSpacing(10);
     }
 
     if (!m_rightButtons->buttons().isEmpty()) {
-        if (c->isMaximizedHorizontally()) {
-            right_margin = 0;
-        }
+        // if (c->isMaximizedHorizontally()) {
+        //     right_margin = 0;
+        // }
 
         m_rightButtons->setPos(QPointF(size().width() - m_rightButtons->geometry().width() - right_margin, 0));
-        m_rightButtons->setSpacing(0);
+        m_rightButtons->setSpacing(10);
     }
 
     update();

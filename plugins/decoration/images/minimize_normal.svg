@@ -248,9 +248,9 @@
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1855"
-     inkscape:window-height="1048"
-     inkscape:window-x="65"
+     inkscape:window-width="1920"
+     inkscape:window-height="941"
+     inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false"
@@ -303,10 +303,14 @@
        y="292.00653"
        ry="4.4795979e-06" />
     <path
-       dominant-baseline="auto"
-       d="M 3.9687694,294.06876 5.80175,292.23578 5.5596585,291.9937 3.9687539,293.58459 2.3778415,291.9937 2.13575,292.23578 Z"
-       id="path1093"
-       inkscape:connector-curvature="0"
-       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#333333;fill-opacity:1;stroke-width:0.38518763;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
+       id="path2"
+       fill="#363636"
+       overflow="visible"
+       white-space="normal"
+       font-family="sans-serif"
+       font-weight="400"
+       color="#000000"
+       style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;isolation:auto;mix-blend-mode:normal;fill:#5d656b;fill-opacity:1;stroke-width:0.433868"
+       d="m 2.233276,292.8143 v 0.43387 h 3.470948 v -0.43387 z" />
   </g>
 </svg>

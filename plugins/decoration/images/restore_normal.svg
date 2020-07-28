@@ -242,15 +242,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="-13.839286"
+     inkscape:cx="-15.178572"
      inkscape:cy="13.315454"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1855"
-     inkscape:window-height="1048"
-     inkscape:window-x="65"
+     inkscape:window-width="1920"
+     inkscape:window-height="941"
+     inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false"
@@ -315,10 +315,14 @@
        id="rect1579-4"
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.12549739;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
     <path
-       dominant-baseline="auto"
-       d="m 3.9687499,291.25138 -2.0267535,1.77985 2.0267535,1.77985 2.0267536,-1.77985 z m 0,0.48335 1.4763344,1.29646 -1.4763344,1.2965 -1.4763344,-1.2965 z"
-       id="path1034"
-       inkscape:connector-curvature="0"
-       style="color:#000000;dominant-baseline:auto;solid-color:#000000;fill:#333333;fill-opacity:1;stroke-width:0.410352;color-rendering:auto;image-rendering:auto;shape-rendering:auto" />
+       id="path2"
+       fill="#363636"
+       d="m 2.8123635,291.97431 c -0.2931583,0 -0.5291667,0.23601 -0.5291667,0.52916 v 1.5875 c 0,0.29316 0.2360084,0.52917 0.5291667,0.52917 h 1.8520833 c 0.2931583,0 0.5291667,-0.23601 0.5291667,-0.52917 v -1.5875 c 0,-0.29315 -0.2360084,-0.52916 -0.5291667,-0.52916 z m 0,0.52916 h 1.8520833 c 0.1465792,0 0.2645833,0.11801 0.2645833,0.26459 v 1.32291 c 0,0.14658 -0.1180041,0.26459 -0.2645833,0.26459 H 2.8123635 c -0.1465792,0 -0.2645833,-0.11801 -0.2645833,-0.26459 v -1.32291 c 0,-0.14658 0.1180041,-0.26459 0.2645833,-0.26459 z"
+       style="stroke-width:0.264583;fill:#5d656b;fill-opacity:1" />
+    <path
+       id="path4"
+       fill="#363636"
+       d="m 3.3415301,291.44514 c -0.1960747,0 -0.3648603,0.10694 -0.4563003,0.26458 h 2.0438003 c 0.2931584,0 0.5291667,0.23601 0.5291667,0.52917 v 1.32292 0.4563 c 0.1576387,-0.0914 0.2645833,-0.26023 0.2645833,-0.4563 v -1.32292 c 0,-0.43974 -0.3540125,-0.79375 -0.79375,-0.79375 z"
+       style="stroke-width:0.264583;fill:#5d656b;fill-opacity:1" />
   </g>
 </svg>

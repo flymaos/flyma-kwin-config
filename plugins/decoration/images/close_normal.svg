@@ -53,9 +53,9 @@
      inkscape:document-rotation="0"
      inkscape:pagecheckerboard="false"
      inkscape:window-maximized="1"
-     inkscape:window-y="0"
+     inkscape:window-y="32"
      inkscape:window-x="0"
-     inkscape:window-height="1004"
+     inkscape:window-height="941"
      inkscape:window-width="1920"
      units="px"
      showgrid="false"
@@ -82,7 +82,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
         <cc:license
            rdf:resource="" />
       </cc:Work>
@@ -109,29 +109,10 @@
        x="0.86407435"
        y="289.91785"
        ry="6.5889685e-06" />
-    <g
-       stroke-width="1.2999"
-       transform="matrix(0.1940363,0,0,0.19457201,-73.756639,189.55824)"
-       id="g27">
-      <circle
-         style="fill:url(#b)"
-         cx="400.57138"
-         cy="531.79791"
-         fill="url(#b)"
-         r="13.999958"
-         id="circle23" />
-      <circle
-         style="fill:url(#a)"
-         cx="400.57138"
-         cy="531.79791"
-         fill="url(#a)"
-         r="0"
-         id="circle25" />
-    </g>
     <polygon
-       style="fill:#ffffff;fill-opacity:1"
-       transform="matrix(0.2938177,0,0,0.29466511,-1.9810582,287.06426)"
-       points="23.438,16.354 23.792,16 24.5,16.708 24.146,17.063 20.958,20.25 24.146,23.438 24.5,23.792 23.792,24.5 23.438,24.146 20.25,20.958 17.063,24.146 16.708,24.5 16,23.792 16.354,23.438 19.542,20.25 16.354,17.063 16,16.708 16.708,16 17.063,16.354 20.25,19.542 "
+       style="fill:#5d656b;fill-opacity:1"
+       transform="matrix(0.40067568,0,0,0.40183128,-4.1449325,284.89415)"
+       points="24.146,17.063 20.958,20.25 24.146,23.438 24.5,23.792 23.792,24.5 23.438,24.146 20.25,20.958 17.063,24.146 16.708,24.5 16,23.792 16.354,23.438 19.542,20.25 16.354,17.063 16,16.708 16.708,16 17.063,16.354 20.25,19.542 23.438,16.354 23.792,16 24.5,16.708 "
        id="polygon2562" />
   </g>
 </svg>
