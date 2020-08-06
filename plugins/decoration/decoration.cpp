@@ -28,6 +28,7 @@
 
 // Qt
 #include <QPainter>
+#include <QSettings>
 #include <QSharedPointer>
 
 #include <KPluginFactory>
@@ -79,7 +80,7 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
         painter->save();
         painter->setRenderHint(QPainter::Antialiasing);
         painter->setPen(Qt::NoPen);
-        painter->setBrush(m_titleBarBgColor);
+        painter->setBrush(titleBarBackgroundColor());
 
         if (s->isAlphaChannelSupported() && radiusAvailable()) {
             painter->drawRoundedRect(rect(), m_frameRadius, m_frameRadius);
@@ -312,6 +313,12 @@ int Decoration::titleBarHeight() const
     // return qRound(1.5 * baseUnit) + fontMetrics.height();
 }
 
+bool Decoration::darkMode() const
+{
+    QSettings settings(QSettings::UserScope, "panda", "theme");
+    return settings.value("DarkMode", false).toBool();
+}
+
 bool Decoration::radiusAvailable() const
 {
     return client().data()->adjacentScreenEdges() == Qt::Edges();
@@ -346,7 +353,7 @@ void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintReg
 
 QColor Decoration::titleBarBackgroundColor() const
 {
-    return m_titleBarBgColor;
+    return darkMode() ? m_titleBarBgDarkColor : m_titleBarBgColor;
 
     // const auto *decoratedClient = client().data();
     // const auto group = decoratedClient->isActive()
@@ -364,11 +371,12 @@ QColor Decoration::titleBarForegroundColor() const
 {
     const auto *decoratedClient = client().data();
     const bool isActive = decoratedClient->isActive();
+    QColor color;
 
-    QColor color = m_titleBarFgColor;
-
-    if (!isActive) {
-        color = m_unfocusedFgColor;
+    if (isActive) {
+        color = darkMode() ? m_titleBarFgDarkColor : m_titleBarFgColor;
+    } else {
+        color = darkMode() ? m_unfocusedFgDarkColor : m_unfocusedFgColor;
     }
 
     return color;
