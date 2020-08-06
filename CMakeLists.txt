@@ -12,5 +12,5 @@ set(CMAKE_AUTORCC ON)
 add_subdirectory(plugins)
 
 install(FILES config/kwinrc DESTINATION /etc/xdg)
-# install(DIRECTORY scripts/pandalauncher DESTINATION /usr/share/kwin/scripts)
+install(DIRECTORY scripts/pandalauncher DESTINATION /usr/share/kwin/scripts)
 install(DIRECTORY tabbox/thumbnail_grid DESTINATION /usr/share/kwin/tabbox)

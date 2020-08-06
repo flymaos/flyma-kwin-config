@@ -5,6 +5,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="maximize_normal.svg"
@@ -15,14 +16,231 @@
    height="30"
    width="30">
   <defs
-     id="defs2" />
+     id="defs2">
+    <linearGradient
+       id="linearGradient3868">
+      <stop
+         style="stop-color:#5a5a5a;stop-opacity:1;"
+         offset="0"
+         id="stop3870" />
+      <stop
+         style="stop-color:#646464;stop-opacity:1;"
+         offset="1"
+         id="stop3872" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3813">
+      <stop
+         style="stop-color:#666666;stop-opacity:1;"
+         offset="0"
+         id="stop3815" />
+      <stop
+         style="stop-color:#636363;stop-opacity:1;"
+         offset="1"
+         id="stop3817" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3787">
+      <stop
+         style="stop-color:#e5e5df;stop-opacity:1;"
+         offset="0"
+         id="stop3789" />
+      <stop
+         style="stop-color:#dadad4;stop-opacity:1;"
+         offset="1"
+         id="stop3791" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3806-3-5-6">
+      <stop
+         style="stop-color:#303030;stop-opacity:1;"
+         offset="0"
+         id="stop3808-6-9-1" />
+      <stop
+         style="stop-color:#232323;stop-opacity:1;"
+         offset="1"
+         id="stop3810-4-6-3" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3787"
+       id="linearGradient3793"
+       x1="40"
+       y1="1044.3622"
+       x2="40"
+       y2="1032.3622"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3787"
+       id="linearGradient3828"
+       gradientUnits="userSpaceOnUse"
+       x1="40"
+       y1="1044.3622"
+       x2="40"
+       y2="1032.3622"
+       gradientTransform="matrix(1.1666666,0,0,1.0769231,-6.5,-80.335554)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3787-8"
+       id="linearGradient3835"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1666666,0,0,1.0769231,-35.5,-1105.6978)"
+       x1="40"
+       y1="1044.3622"
+       x2="40"
+       y2="1032.3622" />
+    <linearGradient
+       id="linearGradient3787-8">
+      <stop
+         style="stop-color:#f5f5ee;stop-opacity:1;"
+         offset="0"
+         id="stop3789-2" />
+      <stop
+         style="stop-color:#e6e6df;stop-opacity:1;"
+         offset="1"
+         id="stop3791-6" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3787-7">
+      <stop
+         style="stop-color:#f5f5ee;stop-opacity:1;"
+         offset="0"
+         id="stop3789-3" />
+      <stop
+         style="stop-color:#e6e6e0;stop-opacity:1;"
+         offset="1"
+         id="stop3791-3" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3787"
+       id="linearGradient3807"
+       x1="11"
+       y1="15.75"
+       x2="11"
+       y2="8.25"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3813"
+       id="linearGradient3819"
+       x1="29.5"
+       y1="15.2"
+       x2="29.5"
+       y2="8.8000002"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4231"
+       id="linearGradient3807-1"
+       x1="10"
+       y1="7.0000038"
+       x2="10"
+       y2="15.888954"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient4231">
+      <stop
+         id="stop4233"
+         offset="0"
+         style="stop-color:#e7e7e1;stop-opacity:1;" />
+      <stop
+         id="stop4239"
+         offset="1"
+         style="stop-color:#dadad3;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4231-1"
+       id="linearGradient3807-1-1"
+       x1="10"
+       y1="15.888976"
+       x2="10"
+       y2="7.0000262"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient4231-1">
+      <stop
+         id="stop4233-6"
+         offset="0"
+         style="stop-color:#e5e5de;stop-opacity:1;" />
+      <stop
+         id="stop4239-7"
+         offset="1"
+         style="stop-color:#dadad3;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4363">
+      <stop
+         style="stop-color:#979791;stop-opacity:1;"
+         offset="0"
+         id="stop4365" />
+      <stop
+         style="stop-color:#dadad4;stop-opacity:0;"
+         offset="1"
+         id="stop4367" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4363-7">
+      <stop
+         style="stop-color:#f5f5ef;stop-opacity:1;"
+         offset="0"
+         id="stop4365-9" />
+      <stop
+         style="stop-color:#dadad4;stop-opacity:0;"
+         offset="1"
+         id="stop4367-8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4231-7"
+       id="linearGradient4361"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1875,0,0,1,-41.25,0)"
+       x1="248.63158"
+       y1="79"
+       x2="248.63158"
+       y2="58" />
+    <linearGradient
+       id="linearGradient4231-7">
+      <stop
+         id="stop4233-4"
+         offset="0"
+         style="stop-color:#e6e6df;stop-opacity:1;" />
+      <stop
+         id="stop4239-8"
+         offset="1"
+         style="stop-color:#d1d1ca;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4231-7"
+       id="linearGradient3127"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1875,0,0,1,-262.25,-55.99998)"
+       x1="248.63158"
+       y1="79"
+       x2="248.63158"
+       y2="58" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4231-7"
+       id="linearGradient3159"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1875,0,0,1,-249.25,-54.99998)"
+       x1="248.63158"
+       y1="79"
+       x2="248.63158"
+       y2="58" />
+  </defs>
   <sodipodi:namedview
      inkscape:document-rotation="0"
      inkscape:pagecheckerboard="false"
      inkscape:window-maximized="1"
      inkscape:window-y="32"
      inkscape:window-x="0"
-     inkscape:window-height="941"
+     inkscape:window-height="953"
      inkscape:window-width="1920"
      units="px"
      showgrid="false"
@@ -76,14 +294,11 @@
        x="-12.230613"
        y="294.87387"
        ry="4.4795979e-06" />
-    <rect
-       ry="1.2571305"
-       rx="0"
-       y="291.77411"
-       x="2.3838937"
-       height="2.514261"
-       width="3.1697125"
-       id="rect880"
-       style="fill:none;fill-opacity:1;stroke:#5d656b;stroke-width:0.332626;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000" />
+    <circle
+       r="2"
+       style="fill:#59a5ff;fill-opacity:1;stroke:none;stroke-width:0.235269;stop-color:#000000"
+       id="path863"
+       cx="3.96875"
+       cy="293.03122" />
   </g>
 </svg>

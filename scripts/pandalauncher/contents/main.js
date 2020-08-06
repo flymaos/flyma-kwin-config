@@ -25,6 +25,8 @@ function forceFullScreen(client) {
     if (!rectContains(screenGeometry, newGeometry)) {
         newGeometry.x = screenGeometry.x;
         newGeometry.y = screenGeometry.y;
+	newGeometry.width = screenGeometry.width;
+	newGeometry.height = screenGeometry.height;
         client.geometry = newGeometry;
     }
 }
