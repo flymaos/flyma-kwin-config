@@ -201,6 +201,9 @@ void Decoration::updateTitleBar()
 
 void Decoration::updateButtonsGeometry()
 {
+    if (!m_leftButtons || !m_rightButtons)
+        return;
+
     auto s = settings();
     auto c = client().data();
     int right_margin = 5;
