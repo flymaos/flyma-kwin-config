@@ -23,6 +23,8 @@
 #include <KDecoration2/DecorationButtonGroup>
 
 // Qt
+#include <QFileSystemWatcher>
+#include <QSettings>
 #include <QVariant>
 #include <QIcon>
 
@@ -94,6 +96,10 @@ private:
     QIcon m_minimizeIcon;
     QIcon m_maximizeIcon;
     QIcon m_restoreIcon;
+
+    QSettings *m_settings;
+    QString m_settingsFile;
+    QFileSystemWatcher *m_fileWatcher;
 };
 
 }

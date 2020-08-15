@@ -49,7 +49,10 @@ static QColor g_shadowColor = Qt::black;
 static QSharedPointer<KDecoration2::DecorationShadow> g_sShadow;
 
 Decoration::Decoration(QObject *parent, const QVariantList &args)
-    : KDecoration2::Decoration(parent, args)
+    : KDecoration2::Decoration(parent, args),
+      m_settings(new QSettings(QSettings::UserScope, "panda", "theme")),
+      m_settingsFile(m_settings->fileName()),
+      m_fileWatcher(new QFileSystemWatcher)
 {
     ++g_sDecoCount;
 
@@ -68,7 +71,7 @@ Decoration::~Decoration()
 
 void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
 {
-    auto *decoratedClient = client().data();
+    auto *decoratedClient = client().toStrongRef().data();
     auto s = settings();
 
     painter->fillRect(rect(), Qt::transparent);
@@ -101,7 +104,7 @@ void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
 
 void Decoration::init()
 {
-    auto *decoratedClient = client().data();
+    auto *decoratedClient = client().toStrongRef().data();
 
     connect(decoratedClient, &KDecoration2::DecoratedClient::widthChanged,
             this, &Decoration::updateTitleBar);
@@ -120,6 +123,19 @@ void Decoration::init()
             this, repaintTitleBar);
     connect(decoratedClient, &KDecoration2::DecoratedClient::activeChanged,
             this, repaintTitleBar);
+
+    // init theme
+    m_fileWatcher->addPath(m_settingsFile);
+    connect(m_fileWatcher, &QFileSystemWatcher::fileChanged, this, [=] {
+                                                                       repaintTitleBar();
+                                                                       updateBorders();
+                                                                       updateResizeBorders();
+                                                                       updateTitleBar();
+                                                                       updateButtonsGeometry();
+                                                                       bool fileDeleted = !m_fileWatcher->files().contains(m_settingsFile);
+                                                                       if (fileDeleted)
+                                                                           m_fileWatcher->addPath(m_settingsFile);
+                                                                   });
 
     updateBorders();
     updateResizeBorders();
@@ -195,7 +211,7 @@ void Decoration::updateResizeBorders()
 
 void Decoration::updateTitleBar()
 {
-    auto *decoratedClient = client().data();
+    auto *decoratedClient = client().toStrongRef().data();
     setTitleBar(QRect(0, 0, decoratedClient->width(), titleBarHeight()));
 }
 
@@ -205,7 +221,7 @@ void Decoration::updateButtonsGeometry()
         return;
 
     auto s = settings();
-    auto c = client().data();
+    auto c = client().toStrongRef().data();
     int right_margin = 5;
     int button_spacing = 0;
 
@@ -324,19 +340,19 @@ bool Decoration::darkMode() const
 
 bool Decoration::radiusAvailable() const
 {
-    return client().data()->adjacentScreenEdges() == Qt::Edges();
+    return client().toStrongRef().data()->adjacentScreenEdges() == Qt::Edges();
 }
 
 bool Decoration::isMaximized() const
 {
-    return client().data()->isMaximized();
+    return client().toStrongRef().data()->isMaximized();
 }
 
 void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const
 {
     Q_UNUSED(repaintRegion)
 
-    const auto *decoratedClient = client().data();
+    const auto *decoratedClient = client().toStrongRef().data();
 
     painter->save();
 
@@ -358,7 +374,7 @@ QColor Decoration::titleBarBackgroundColor() const
 {
     return darkMode() ? m_titleBarBgDarkColor : m_titleBarBgColor;
 
-    // const auto *decoratedClient = client().data();
+    // const auto *decoratedClient = client().toStrongRef().data();
     // const auto group = decoratedClient->isActive()
     //     ? KDecoration2::ColorGroup::Active
     //     : KDecoration2::ColorGroup::Inactive;
@@ -372,7 +388,7 @@ QColor Decoration::titleBarBackgroundColor() const
 
 QColor Decoration::titleBarForegroundColor() const
 {
-    const auto *decoratedClient = client().data();
+    const auto *decoratedClient = client().toStrongRef().data();
     const bool isActive = decoratedClient->isActive();
     QColor color;
 
@@ -389,7 +405,7 @@ void Decoration::paintTitleBarBackground(QPainter *painter, const QRect &repaint
 {
     Q_UNUSED(repaintRegion)
 
-    const auto *decoratedClient = client().data();
+    const auto *decoratedClient = client().toStrongRef().data();
 
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
@@ -405,7 +421,7 @@ void Decoration::paintCaption(QPainter *painter, const QRect &repaintRegion) con
 {
     Q_UNUSED(repaintRegion)
 
-    const auto *decoratedClient = client().data();
+    const auto *decoratedClient = client().toStrongRef().data();
 
     const int textWidth = settings()->fontMetrics().boundingRect(decoratedClient->caption()).width();
     const QRect textRect((size().width() - textWidth) / 2, 0, textWidth, titleBarHeight());

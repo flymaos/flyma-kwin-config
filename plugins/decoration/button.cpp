@@ -28,7 +28,7 @@
 Button::Button(KDecoration2::DecorationButtonType type, const QPointer<KDecoration2::Decoration> &decoration, QObject *parent)
     : KDecoration2::DecorationButton(type, decoration, parent)
 {
-    auto c = decoration->client().data();
+    auto c = decoration->client().toStrongRef().data();
 
     switch (type) {
     case KDecoration2::DecorationButtonType::Menu:
@@ -69,7 +69,7 @@ void Button::paint(QPainter *painter, const QRect &repaintRegion)
 
     painter->save();
 
-    auto c = decoration->client().data();
+    auto c = decoration->client().toStrongRef().data();
 
     QIcon::Mode state = QIcon::Normal;
 
